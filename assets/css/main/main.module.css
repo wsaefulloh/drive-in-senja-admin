@@ -1,0 +1,318 @@
+@import "../../../node_modules/react-beautiful-horizontal-timeline/card.css";
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url("../../fonts/PlusJakartaDisplay/PlusJakartaSans-Medium.ttf");
+  font-style: medium;
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  font-family: "PlusJakartaSans";
+  font-style: normal;
+  font-size: 12px;
+}
+
+p {
+  line-height: 0;
+  margin: 0 !important;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  margin-bottom: 15px;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.col {
+  padding-left: 7.5px !important;
+  padding-right: 7.5px !important;
+}
+
+.row {
+  margin-left: unset;
+  margin-right: unset;
+}
+
+.slider-playnow .slick-list {
+  padding-bottom: 20px !important;
+}
+
+.slider-playnow .slick-next:before {
+  color: #444444;
+}
+
+.slider-playnow .slick-prev:before {
+  color: #444444;
+}
+
+.event-promotions .slick-next:before {
+  color: #ffffff !important;
+}
+
+.event-promotions .slick-prev:before {
+  color: #ffffff !important;
+}
+
+.slider-experience .slick-list {
+  padding-bottom: 10px !important;
+}
+
+.title_cover {
+  background-image: url("../../img/theme/image 6.svg");
+  height: 400px;
+  width: 270px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.iconSize {
+  width: 50px !important;
+}
+
+.navbar__text {
+  color: #434343 !important;
+}
+
+.navbar__textActive {
+  color: #fe7900 !important;
+  cursor: pointer !important;
+}
+
+.navbar__text:hover {
+  color: #fe7900 !important;
+  cursor: pointer !important;
+}
+
+.footer__custom {
+  background-image: url("../../img/theme/footer.png") !important;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+
+.background__home {
+  background-image: url("../../img/theme/aaa.png") !important;
+  background-size: cover;
+  background-position: center;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.background__image {
+  background-image: url("../../img/theme/foto landing page.png") !important;
+  background-size: cover;
+  background-position: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+.background__card__events {
+  background-image: url("../../img/brand/Instagram_post_-_27.png");
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  width: 100%;
+}
+
+.background__card__workshop {
+  background-image: url("../../img/brand/Instagram_post_-_27.png");
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  width: 100%;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.background__card__juree {
+  background-image: url("../../img/theme/juree.svg");
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  width: 100%;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.background__card__partner {
+  background-image: url("../../img/theme/Rectangle 187.svg");
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  width: 100%;
+}
+
+.gradient__card__events {
+  background: linear-gradient(
+    180deg,
+    rgba(214, 231, 255, 0) 0%,
+    #000000 116.25%
+  );
+  height: 100%;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.gradient__card__detail_film {
+  background: linear-gradient(
+    180deg,
+    rgba(214, 231, 255, 0) -80%,
+    #000000 116.25%
+  );
+  height: 100%;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.gradient__card__partner {
+  background: linear-gradient(
+    180deg,
+    rgba(214, 231, 255, 0) 0%,
+    #000000 116.25%
+  );
+  height: 100%;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.carousel-box {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bg-carousel {
+  background-image: url("../../img/theme/Frame 701.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.slick-dots {
+  bottom: 5px !important;
+  margin-bottom: 3px !important;
+}
+
+.background-3 {
+  background-image: url("../../img/theme/Frame 700.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.background_card2 {
+  background-image: url("../../img/theme/foto tagline.png");
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+}
+
+.background_food {
+  background-image: url("../../img/theme/foof and drink.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.background_event_promotion {
+  background-image: url("../../img/theme/foto landing page.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.background_film {
+  background-image: url("../../img/icons/common/image 6.svg");
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  width: 100%;
+}
+
+.search {
+  width: 20%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 1px 3px rgba(50, 50, 93, 0.15),
+    0px 1px 0px rgba(0, 0, 0, 0.02);
+  padding: 10px 35px;
+  border: 0px solid #8e8e8e;
+  border-radius: 23px;
+  background-image: url(../../img/icons/common/Search.svg);
+  background-repeat: no-repeat;
+  background-position-x: 6%;
+  background-position-y: center;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.background_detail {
+  background-image: url("../../img/theme/Rectangle (1).svg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.background_location {
+  background-image: url("../../img/theme/aaa.png");
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.background_maps {
+  background-color: #ffffff;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.border_langkah {
+  border: 4px solid #ffffff;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.langkah_number {
+  background-color: #ffffff;
+  color: #fe7900;
+  border-radius: 20px;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.descriptionEventName {
+  color: #ffffff !important;
+}
+
+.descriptionEventDetails {
+  color: #ffffff !important;
+}
+
+.wrapperAll {
+  width: 100%;
+}
