@@ -9,38 +9,67 @@ import {
   Modal,
   Card,
   CardHeader,
+  Spinner,
+  Form,
+  Input,
 } from "reactstrap";
 // layout for this page
 import HomeLayoutAdmin from "layouts/Admin.js";
 // core components
-import CardPartnership from "components/Cards/CardsPartnership.js";
+import CardGenre from "components/Cards/CardsGenre.js";
 import { fetchWrapper } from "../../helpers/fetch-wrapper";
 
 import "../../assets/css/main/main.module.css";
-import Link from "next/link";
+import Swal from "sweetalert2";
+import { useRouter } from "next/router";
 
-function BookingPartner() {
-  const [partnership, setPartnership] = useState([]);
+function GenrePage() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [ticketPlatform, setTicketPlatform] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [nameGenre, setNameGenre] = useState("");
+  const [genre, setGenre] = useState([]);
 
-  const getTicketPlatform = async () => {
-    const data = await fetchWrapper.get(`../api/get-ticket-platform`);
+  const router = useRouter();
+
+  const getAllGenre = async () => {
+    const data = await fetchWrapper.get(`../api/genre`);
     if (data) {
-      setTicketPlatform(data.data);
+      setGenre(data.data);
     }
   };
 
-  const getPartnership = async () => {
-    const data = await fetchWrapper.get(`../api/booking-partner`);
-    if (data) {
-      setPartnership(data.data);
+  const addGenre = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`../api/genre`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name_genre: nameGenre,
+        }),
+      });
+      const data = await response.json();
+      if (data) {
+        if (data.statusCode != 201) {
+          Swal.fire("FAILED", "Lengkapi semua data!", "error");
+          setLoading(false);
+        } else {
+          await Swal.fire("OK", "Genre berhasil ditambahkan", "success");
+          router.reload(window.location.pathname);
+        }
+      }
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      Swal.fire("FAILED", "Data gagal di proses", "error");
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    getTicketPlatform();
-    getPartnership();
+    getAllGenre();
   }, []);
 
   return (
@@ -54,21 +83,29 @@ function BookingPartner() {
                   <Col>
                     <h3 className="mb-0">List Genre</h3>
                   </Col>
+                  <Button
+                    className="m-1 border-0 py-1 px-3"
+                    style={{
+                      color: "#ffffff",
+                      backgroundColor: "#FE7900",
+                      borderRadius: "5px",
+                    }}
+                    type="button"
+                    onClick={() => {
+                      setModalOpen(!modalOpen);
+                    }}
+                  >
+                    <span>Tambah</span>
+                  </Button>
                 </Row>
               </div>
             </Container>
           </Card>
 
           <Container>
-            <Card>
-              <div className="py-3 px-2">
-                <Row className="align-items-center">
-                  <Col>
-                    <span className="mb-0">List Genre</span>
-                  </Col>
-                </Row>
-              </div>
-            </Card>
+            {genre.map((val) => {
+              return <CardGenre id={val.id} genre={val.name_genre} />;
+            })}
           </Container>
         </Card>
       </Col>
@@ -80,7 +117,7 @@ function BookingPartner() {
         fade={true}
         size="md"
       >
-        <div className="justify-content-center text-center p-4 px-6">
+        <div className="justify-content-center text-center p-4">
           <img
             onClick={() => {
               setModalOpen(false);
@@ -94,37 +131,56 @@ function BookingPartner() {
             }}
             src="data:image/png;base64,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"
           ></img>
-          <h3 className="m-0 mb-3 p-0">Pembelian Tiket Melalui :</h3>
-          <div className="d-flex flex-column justify-content-center align-items-center">
-            {ticketPlatform.map((val) => {
-              return (
-                <Button
-                  style={{
-                    backgroundColor: "#ffffff",
-                    border: "0",
+          <h3 className="m-0 mb-3 p-0">Tambah Genre</h3>
+          <Form>
+            <div className="form-row">
+              <Col className="mb-3 p-0">
+                <Input
+                  id="form-genre"
+                  placeholder="Nama Genre"
+                  type="text"
+                  onChange={(e) => {
+                    setNameGenre(e.target.value);
                   }}
-                  type="button"
-                  className="px-3 my-1 mx-0"
-                >
-                  <Link href={`${val.url_ticket}`}>
-                    <a target="_blank">
-                      <img
-                        alt="..."
-                        src={`https://drive.google.com/uc?export=view&id=${val.url_image}`}
-                        height="30px"
-                      />
-                    </a>
-                  </Link>
-                </Button>
-              );
-            })}
-          </div>
+                />
+              </Col>
+            </div>
+          </Form>
+          <Button
+            color="secondary"
+            style={{
+              color: "#ffffff",
+              backgroundColor: "#FE7900",
+              maxWidth: "150px",
+            }}
+            className="border-0"
+            type="button"
+            onClick={() => {
+              addGenre();
+            }}
+          >
+            {loading == true ? (
+              <>
+                <div className="py-1 text-center align-content-center align-items-center">
+                  <Spinner
+                    as="span"
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                </div>
+              </>
+            ) : (
+              <>Tambah</>
+            )}
+          </Button>
         </div>
       </Modal>
     </>
   );
 }
 
-BookingPartner.layout = HomeLayoutAdmin;
+GenrePage.layout = HomeLayoutAdmin;
 
-export default BookingPartner;
+export default GenrePage;
