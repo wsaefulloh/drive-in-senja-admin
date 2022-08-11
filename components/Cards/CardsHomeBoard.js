@@ -67,6 +67,7 @@ function CardHomeBoard(props) {
   };
 
   const updateData = async () => {
+    setLoading(true);
     try {
       const response = await fetch(`../api/home-board`, {
         method: "PUT",

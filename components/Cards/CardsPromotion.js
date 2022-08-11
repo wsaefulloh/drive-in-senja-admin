@@ -69,6 +69,7 @@ function CardPromotion(props) {
   };
 
   const updateData = async () => {
+    setLoading(true);
     try {
       const response = await fetch(`../api/promotion`, {
         method: "PUT",

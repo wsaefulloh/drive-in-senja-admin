@@ -67,6 +67,7 @@ function CardGenre(props) {
   };
 
   const updateGenre = async (genre) => {
+    setLoading(true);
     try {
       const response = await fetch(`../api/genre`, {
         method: "PUT",

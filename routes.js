@@ -49,7 +49,7 @@ export default {
       name: "Upload Image Booking & Partnership",
     },
     {
-      path: "/admin/artner-sponsorship",
+      path: "/admin/partner-sponsorship",
       name: "Sponsor Film Festival",
     },
     {

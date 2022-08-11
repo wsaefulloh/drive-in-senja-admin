@@ -84,6 +84,7 @@ function CardLocation(props) {
   };
 
   const updateLocation = async (name_location) => {
+    setLoading(true);
     try {
       const response = await fetch(`../api/location`, {
         method: "PUT",

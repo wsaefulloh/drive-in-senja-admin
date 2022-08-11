@@ -67,6 +67,7 @@ function CardTheme(props) {
   };
 
   const updateTheme = async (theme) => {
+    setLoading(true);
     try {
       const response = await fetch(`../api/theme`, {
         method: "PUT",
