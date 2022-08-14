@@ -21,7 +21,7 @@ function SideMenu() {
               router.push(`${props.path}`);
             }}
           >
-            <p className="m-0 ml-3 textMenu">{props.name}</p>
+            <p className="m-0 textMenu">{props.name}</p>
           </div>
         );
       }
@@ -33,7 +33,7 @@ function SideMenu() {
             router.push(`${props.path}`);
           }}
         >
-          <p className="m-0 ml-3 textMenu">{props.name}</p>
+          <p className="m-0 textMenu">{props.name}</p>
         </div>
       );
     });

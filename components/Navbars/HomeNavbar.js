@@ -16,9 +16,16 @@ import {
 
 import "../../assets/css/main/main.module.css";
 
+import Cookie from "js-cookie";
+
 function HomeNavbar() {
   const router = useRouter();
   const url_page = router.asPath;
+
+  const handleLogout = async (e) => {
+    Cookie.remove("token");
+    return router.push("/auth");
+  };
 
   return (
     <>
@@ -93,17 +100,17 @@ function HomeNavbar() {
               </div>
               <Nav navbar>
                 <NavItem className="m-0">
-                  <a target="" href="/location">
-                    <NavLink href="/location" className="py-1">
-                      {url_page.includes("location") ? (
-                        <span className="nav-link-inner--text navbar__textActive">
-                          Logout
-                        </span>
-                      ) : (
-                        <span className="nav-link-inner--text navbar__text">
-                          Logout
-                        </span>
-                      )}
+                  <a target="" href="/auth">
+                    <NavLink
+                      href="/auth"
+                      onClick={() => {
+                        handleLogout();
+                      }}
+                      className="py-1"
+                    >
+                      <span className="nav-link-inner--text navbar__text">
+                        Logout
+                      </span>
                     </NavLink>
                   </a>
                 </NavItem>

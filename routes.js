@@ -29,24 +29,16 @@ export default {
       name: "Film",
     },
     {
-      path: "/admin/upload-file-film",
-      name: "Upload File Film",
-    },
-    {
       path: "/admin/ticket-film",
       name: "Ticket Film",
     },
     {
       path: "/admin/film-festival",
-      name: "Film Festival",
+      name: "Film Festival Page",
     },
     {
       path: "/admin/private-booking",
       name: "Booking & Parnership",
-    },
-    {
-      path: "/admin/upload-image-private-business",
-      name: "Upload Image Booking & Partnership",
     },
     {
       path: "/admin/partner-sponsorship",
